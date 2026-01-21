@@ -19,11 +19,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Get version from git tag
-      run: |
-        TAG=$(git describe --tags --abbrev=0)
-        echo "APP_VERSION=$TAG" >> $GITHUB_ENV
-
     - name: Build React app
       run: npm install && npm run build
       working-directory: ./frontend

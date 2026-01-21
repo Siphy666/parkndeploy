@@ -8,8 +8,8 @@ import { LoadingSpinner } from "@/components/ui/loadingspinner";
 import ParkingListFilters from "@/components/ParkingList/ParkingListFilters";
 import { useParkingSearchStore } from "@/stores/parkingSearchStore";
 
+
 function App() {
-  const version = import.meta.env.APP_VERSION
   const { parkingName } = useParkingSearchStore();
 
   const { data, isPending, isError } = useQuery({
@@ -20,10 +20,9 @@ function App() {
   console.log(parkingName)
 
   return (
-    <div>
       <div className="flex flex-col gap-5 items-center">
         <h1 className="text-2xl font-bold text-center">
-          Where can I Park in Angers ? 👀
+          Where can I Park in Angers ? 👀 (Version : {APP_VERSION})
         </h1>
         <ParkingListFilters
           onChange={(parkingName: string) => {
@@ -34,10 +33,6 @@ function App() {
         {isError && <span>Something went wrong with the backend ...</span>}
         {data && <ParkingList parkings={data.parkings} />}
       </div>
-      <div>
-        Version : {version}
-      </div>
-    </div>
   );
 }
 
