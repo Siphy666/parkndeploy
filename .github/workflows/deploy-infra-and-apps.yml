@@ -31,8 +31,8 @@ jobs:
 
     - name: Save package.json version
       run: |
-        git config --global user.name 
-        git config --global user.email 
+        git config --global user.name Siphy666
+        git config --global user.email Siphy666@gmail.com
         git add .
         git commit -m "package version update"
         git push
