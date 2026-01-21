@@ -5,7 +5,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write
+  id-token: write    
+  contents: write
 
 env: 
   AZURE_RG_NAME: rg-${{ vars.PROJECT_NAME }}-${{ vars.AZURE_RESOURCE_IDENTIFIER }}
