@@ -33,6 +33,7 @@ jobs:
       run: |
         git config --global user.name Siphy666
         git config --global user.email Siphy666@gmail.com
+        git checkout main
         git add .
         git commit -m "package version update"
         git push
