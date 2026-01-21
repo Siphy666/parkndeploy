@@ -45,7 +45,7 @@ jobs:
 
     - name: Publish backend
       working-directory: ./backend
-      run: dotnet publish -c Release -o publish
+      run: dotnet publish -c Release --properties:PublishDir=publish
 
     - name: Upload backend artifact
       uses: actions/upload-artifact@v4
