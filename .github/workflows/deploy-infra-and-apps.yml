@@ -19,8 +19,23 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Update package version from git tag
+      run: |
+        TAG=$(git describe --tags --abbrev=0)
+        cd frontend
+        npm version $TAG
+
     - name: Build React app
       run: npm install && npm run build
+      working-directory: ./frontend
+
+    - name: Save package.json version
+      run: |
+        git config --global user.name 
+        git config --global user.email 
+        git add .
+        git commit -m "package version update"
+        git push
       working-directory: ./frontend
 
     - name: Upload frontend artifact
